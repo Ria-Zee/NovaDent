@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { Bluetooth as Tooth, Menu, X } from "lucide-react";
-// using a tooth-ish icon: lucide doesn't have tooth; use Sparkle replacement
-import { Sparkles } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
