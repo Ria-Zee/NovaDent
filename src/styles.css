@@ -6,7 +6,7 @@
 
 @theme inline {
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -31,44 +31,48 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-navy: var(--navy);
-  --color-navy-foreground: var(--navy-foreground);
+  --color-forest: var(--forest);
+  --color-forest-foreground: var(--forest-foreground);
+  --color-forest-soft: var(--forest-soft);
   --color-teal: var(--teal);
   --color-teal-foreground: var(--teal-foreground);
-  --color-navy-soft: var(--navy-soft);
+  --color-cream: var(--cream);
+  /* Back-compat aliases (legacy navy/* utility names map to forest) */
+  --color-navy: var(--forest);
+  --color-navy-foreground: var(--forest-foreground);
+  --color-navy-soft: var(--forest-soft);
 }
 
 :root {
-  --radius: 0.75rem;
-  /* #F8FAFC */
-  --background: oklch(0.984 0.003 247.858);
-  /* near #0F172A for foreground text */
-  --foreground: oklch(0.21 0.04 265);
+  --radius: 1rem;
+  /* Warm off-white #FAF7F2 */
+  --background: oklch(0.972 0.01 85);
+  --foreground: oklch(0.22 0.03 150);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.04 265);
+  --card-foreground: oklch(0.22 0.03 150);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.04 265);
-  /* navy #1E3A5F */
-  --primary: oklch(0.34 0.06 254);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.96 0.01 250);
-  --secondary-foreground: oklch(0.21 0.04 265);
-  --muted: oklch(0.96 0.01 250);
-  --muted-foreground: oklch(0.5 0.03 257);
-  /* teal #0D9488 */
+  --popover-foreground: oklch(0.22 0.03 150);
+  /* Forest #1B4332 */
+  --primary: oklch(0.32 0.06 158);
+  --primary-foreground: oklch(0.972 0.01 85);
+  --secondary: oklch(0.94 0.012 90);
+  --secondary-foreground: oklch(0.22 0.03 150);
+  --muted: oklch(0.94 0.012 90);
+  --muted-foreground: oklch(0.46 0.02 150);
   --accent: oklch(0.62 0.11 187);
   --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.92 0.01 255);
-  --input: oklch(0.92 0.01 255);
+  --border: oklch(0.9 0.012 90);
+  --input: oklch(0.9 0.012 90);
   --ring: oklch(0.62 0.11 187);
 
-  --navy: oklch(0.34 0.06 254);
-  --navy-soft: oklch(0.28 0.05 254);
-  --navy-foreground: oklch(0.984 0.003 247.858);
+  --forest: oklch(0.32 0.06 158);
+  --forest-soft: oklch(0.26 0.05 158);
+  --forest-foreground: oklch(0.972 0.01 85);
   --teal: oklch(0.62 0.11 187);
   --teal-foreground: oklch(0.99 0 0);
+  --cream: oklch(0.972 0.01 85);
 }
 
 @layer base {
@@ -79,6 +83,76 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, .font-serif { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
 }
+
+/* ---------- Premium utilities ---------- */
+@layer utilities {
+  .glass {
+    background: color-mix(in oklab, white 70%, transparent);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid color-mix(in oklab, white 60%, transparent);
+    box-shadow:
+      0 1px 0 color-mix(in oklab, white 80%, transparent) inset,
+      0 30px 60px -30px color-mix(in oklab, var(--forest) 35%, transparent);
+  }
+  .glass-dark {
+    background: color-mix(in oklab, var(--forest) 55%, transparent);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid color-mix(in oklab, white 12%, transparent);
+  }
+  .text-balance { text-wrap: balance; }
+  .hero-gradient {
+    background:
+      radial-gradient(60% 60% at 15% 10%, color-mix(in oklab, var(--teal) 14%, transparent), transparent 70%),
+      radial-gradient(70% 50% at 90% 0%, color-mix(in oklab, var(--forest) 18%, transparent), transparent 65%),
+      linear-gradient(180deg, #FAF7F2 0%, #F2F0E8 100%);
+  }
+  .animated-mesh {
+    position: absolute; inset: -20%;
+    background:
+      radial-gradient(40% 40% at 20% 30%, color-mix(in oklab, var(--teal) 22%, transparent), transparent 60%),
+      radial-gradient(35% 35% at 80% 20%, color-mix(in oklab, var(--forest) 28%, transparent), transparent 60%),
+      radial-gradient(45% 35% at 60% 80%, color-mix(in oklab, #E9C46A 35%, transparent), transparent 60%);
+    filter: blur(40px);
+    animation: mesh-drift 18s ease-in-out infinite alternate;
+    z-index: -1;
+  }
+}
+
+@keyframes mesh-drift {
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(2%, -3%, 0) scale(1.05); }
+  100% { transform: translate3d(-2%, 2%, 0) scale(1.02); }
+}
+@keyframes tooth-bounce {
+  0%   { transform: translateY(-40px) scale(0.6); opacity: 0; }
+  60%  { transform: translateY(6px) scale(1.08); opacity: 1; }
+  80%  { transform: translateY(-3px) scale(0.98); }
+  100% { transform: translateY(0) scale(1); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes float-y-slow {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-14px) rotate(-2deg); }
+}
+@keyframes drift-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-tooth-bounce { animation: tooth-bounce 1.1s cubic-bezier(.2,.8,.2,1) both; }
+.animate-float        { animation: float-y 6s ease-in-out infinite; }
+.animate-float-slow   { animation: float-y-slow 8s ease-in-out infinite; }
+.animate-drift-in     { animation: drift-in 0.8s ease-out both; }
