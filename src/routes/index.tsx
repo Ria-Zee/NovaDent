@@ -4,6 +4,7 @@ import { Hero } from "@/components/novadent/Hero";
 import { SocialProof } from "@/components/novadent/SocialProof";
 import { Problem } from "@/components/novadent/Problem";
 import { Solution } from "@/components/novadent/Solution";
+import { Imagery } from "@/components/novadent/Imagery";
 import { Features } from "@/components/novadent/Features";
 import { Agents } from "@/components/novadent/Agents";
 import { FAQ } from "@/components/novadent/FAQ";
@@ -24,6 +25,7 @@ function Index() {
         <SocialProof />
         <Problem />
         <Solution />
+        <Imagery />
         <Features />
         <Agents />
         <FAQ />
