@@ -1,4 +1,4 @@
-import { Sparkles } from "lucide-react";
+import { Logo } from "./Logo";
 
 export function Footer() {
   const cols = [
@@ -8,17 +8,15 @@ export function Footer() {
     { title: "Legal", links: ["Privacy", "Terms", "HIPAA", "GDPR", "DPA"] },
   ];
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-6">
-          <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy text-navy-foreground">
-                <Sparkles className="h-5 w-5" />
-              </span>
-              <span className="font-serif text-2xl font-semibold tracking-tight text-navy">NovaDent</span>
+    <footer className="border-t border-border/60 bg-background">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-4">
+          <div className="lg:col-span-1">
+            <a href="#" className="flex items-center gap-2.5">
+              <Logo className="h-10 w-10" />
+              <span className="font-serif text-2xl font-semibold tracking-tight text-forest">NovaDent</span>
             </a>
-            <p className="mt-4 max-w-xs text-sm text-muted-foreground">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted-foreground">
               The AI practice platform for modern dental clinics. Built for chairside humans.
             </p>
             <div className="mt-6 flex items-center gap-3 text-2xl" aria-label="Available in">
@@ -28,20 +26,22 @@ export function Footer() {
               <span title="Canada">🇨🇦</span>
             </div>
           </div>
-          {cols.map((c) => (
-            <div key={c.title}>
-              <h3 className="font-serif text-base text-navy">{c.title}</h3>
-              <ul className="mt-4 space-y-2.5">
-                {c.links.map((l) => (
-                  <li key={l}>
-                    <a href="#" className="text-sm text-muted-foreground transition hover:text-navy">{l}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 lg:col-span-3">
+            {cols.map((c) => (
+              <div key={c.title}>
+                <h3 className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-forest">{c.title}</h3>
+                <ul className="mt-5 space-y-3">
+                  {c.links.map((l) => (
+                    <li key={l}>
+                      <a href="#" className="text-sm text-muted-foreground transition hover:text-forest">{l}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-border pt-8 sm:flex-row sm:items-center">
+        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-border/60 pt-8 sm:flex-row sm:items-center">
           <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} NovaDent, Inc. All rights reserved.</p>
           <p className="text-xs text-muted-foreground">Built with care for dental teams worldwide.</p>
         </div>

@@ -11,23 +11,23 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="border-y border-border bg-secondary/40 py-24 sm:py-32">
+    <section id="features" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal">Features</span>
-          <h2 className="mt-4 font-serif text-4xl text-navy sm:text-5xl">
-            Everything you need. Nothing you don't.
+          <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-teal">Features</span>
+          <h2 className="text-balance mt-4 font-serif text-5xl leading-[0.95] tracking-tight text-forest sm:text-6xl">
+            Everything you need.<br /><span className="italic">Nothing you don't.</span>
           </h2>
         </div>
-        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => {
             const I = f.icon;
             return (
-              <div key={f.title} className="group bg-card p-8 transition hover:bg-secondary/60">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-navy-foreground transition group-hover:bg-teal">
+              <div key={f.title} className="group glass rounded-3xl p-8 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-forest/10">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-forest text-forest-foreground transition group-hover:bg-teal">
                   <I className="h-5 w-5" />
                 </span>
-                <h3 className="mt-6 font-serif text-2xl text-navy">{f.title}</h3>
+                <h3 className="mt-6 font-serif text-2xl text-forest">{f.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.body}</p>
               </div>
             );
