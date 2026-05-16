@@ -1,3 +1,5 @@
+"use client";
+
 import { Bot, MessageSquare, CalendarDays, CreditCard, BarChart3, ShieldCheck } from "lucide-react";
 
 const features = [
@@ -23,17 +25,60 @@ export function Features() {
           {features.map((f) => {
             const I = f.icon;
             return (
-              <div key={f.title} className="group glass rounded-3xl p-8 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-forest/10">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-forest text-forest-foreground transition group-hover:bg-teal">
-                  <I className="h-5 w-5" />
-                </span>
-                <h3 className="mt-6 font-serif text-2xl text-forest">{f.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.body}</p>
+              <div
+                key={f.title}
+                className="group perspective"
+                style={{
+                  perspective: "1000px",
+                }}
+              >
+                <div
+                  className="glass rounded-3xl p-8 transition-all duration-350"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: "perspective(1000px) rotateX(2deg) rotateY(0deg)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget;
+                    el.style.transform =
+                      "perspective(1000px) translateY(-12px) rotateX(-4deg) rotateY(4deg) scale(1.02)";
+                    el.style.boxShadow = "0 24px 60px rgba(13,148,136,0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget;
+                    el.style.transform = "perspective(1000px) rotateX(2deg) rotateY(0deg)";
+                    el.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)";
+                  }}
+                >
+                  <span
+                    className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-forest text-forest-foreground transition-all duration-300 group-hover:bg-teal"
+                    style={{
+                      transform: "translateY(0px) rotate(0deg)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "translateY(-6px) rotate(5deg)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateY(0px) rotate(0deg)";
+                    }}
+                  >
+                    <I className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-6 font-serif text-2xl text-forest">{f.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.body}</p>
+                </div>
               </div>
             );
           })}
         </div>
       </div>
+
+      <style>{`
+        .perspective {
+          perspective: 1000px;
+        }
+      `}</style>
     </section>
   );
 }

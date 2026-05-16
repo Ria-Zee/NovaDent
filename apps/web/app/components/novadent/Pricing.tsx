@@ -1,3 +1,5 @@
+"use client";
+
 import { Check, Sparkles } from "lucide-react";
 
 const plans = [
@@ -46,15 +48,30 @@ export function Pricing() {
           {plans.map((p) => (
             <div
               key={p.name}
-              className={`relative flex flex-col rounded-3xl p-8 transition ${
-                p.featured
-                  ? "glass border-2 border-teal/60 bg-white shadow-[0_30px_80px_-20px_rgba(13,148,136,0.45)] lg:-translate-y-6 lg:scale-[1.04]"
-                  : "glass"
+              className={`relative flex flex-col rounded-3xl p-8 transition-all duration-350 perspective ${
+                p.featured ? "glass border-2 border-teal/60 bg-white shadow-[0_30px_80px_-20px_rgba(13,148,136,0.45)] lg:-translate-y-6 lg:scale-[1.04]" : "glass"
               }`}
+              style={{
+                perspective: "1000px",
+                transformStyle: "preserve-3d",
+                transform: "perspective(1000px) rotateX(2deg) rotateY(0deg)",
+                boxShadow: p.featured ? "0 30px 80px -20px rgba(13, 148, 136, 0.45), 0 4px 20px rgba(0,0,0,0.08)" : "0 4px 20px rgba(0,0,0,0.08)",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget;
+                el.style.transform =
+                  "perspective(1000px) translateY(-12px) rotateX(-4deg) rotateY(4deg) scale(1.02)";
+                el.style.boxShadow = p.featured ? "0 30px 80px -20px rgba(13, 148, 136, 0.45), 0 24px 60px rgba(13,148,136,0.2)" : "0 24px 60px rgba(13,148,136,0.2)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget;
+                el.style.transform = "perspective(1000px) rotateX(2deg) rotateY(0deg)";
+                el.style.boxShadow = p.featured ? "0 30px 80px -20px rgba(13, 148, 136, 0.45), 0 4px 20px rgba(0,0,0,0.08)" : "0 4px 20px rgba(0,0,0,0.08)";
+              }}
             >
               {p.featured && (
                 <>
-                  <div className="pointer-events-none absolute -inset-px -z-10 rounded-3xl bg-gradient-to-br from-teal/40 via-teal/10 to-transparent blur-2xl" />
+                  <div className="pointer-events-none absolute -inset-px -z-10 rounded-3xl bg-gradient-to-br from-teal/40 via-teal/10 to-transparent blur-2xl animate-pulse-glow" />
                   <span className="absolute -top-3.5 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-teal px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-teal-foreground shadow-lg shadow-teal/30">
                     <Sparkles className="h-3 w-3" /> Most popular
                   </span>
@@ -88,6 +105,12 @@ export function Pricing() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        .perspective {
+          perspective: 1000px;
+        }
+      `}</style>
     </section>
   );
 }
