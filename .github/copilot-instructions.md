@@ -17,3 +17,19 @@
 - Test RLS policies with both authorised and unauthorised users
 - Every booking flow must have an end-to-end test
 - Test the AI chat endpoint with mock Claude responses
+
+## ECC Skills — When to Use What
+- Planning a feature → planner.md
+- System design → architect.md
+- Frontend/Next.js work → frontend-patterns/
+- TypeScript cleanup → typescript-reviewer.md
+- Supabase/DB queries → database-reviewer.md
+- Security checks → security-reviewer.md + security-review/
+- API routes → backend-patterns/
+- Build errors → build-error-resolver.md
+- Code quality → code-reviewer.md
+- E2E tests → e2e-testing/
+- Pre-deploy checks → verification-loop/
+- Before any implementation → search-first/
+- General TS rules → rules-typescript/
+- Universal rules → rules-common/

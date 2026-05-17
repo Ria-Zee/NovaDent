@@ -19,7 +19,7 @@ export function Imagery() {
         <div className="relative mt-16 grid grid-cols-12 gap-4 sm:gap-6">
           <figure className="col-span-12 lg:col-span-7">
             <img
-              src="/assets/clinic-room.jpg"
+              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800"
               alt="Bright modern dental operatory bathed in morning light"
               loading="lazy"
               width={1280}
@@ -29,7 +29,7 @@ export function Imagery() {
           </figure>
           <figure className="col-span-12 lg:col-span-5 lg:-mt-16">
             <img
-              src="/assets/dentist-patient.jpg"
+              src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800"
               alt="Dentist in scrubs sharing a smile with a patient"
               loading="lazy"
               width={1024}
@@ -46,7 +46,7 @@ export function Imagery() {
 
           <figure className="col-span-12 lg:col-span-5 lg:-mt-24">
             <img
-              src="/assets/scanner.jpg"
+              src="https://images.unsplash.com/photo-1588776814546-1ffedaa5b8e2?w=800"
               alt="Modern handheld 3D dental intraoral scanner"
               loading="lazy"
               width={1024}
