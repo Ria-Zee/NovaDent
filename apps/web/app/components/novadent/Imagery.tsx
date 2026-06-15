@@ -56,7 +56,7 @@ export function Imagery() {
           </figure>
           <figure className="col-span-12 lg:col-span-7 lg:-mt-8">
             <img
-              src="/assets/smile-macro.jpg"
+              src="https://images.unsplash.com/photo-1598032895311-33bd0e76b75d?w=800"
               alt="Extreme close-up of a healthy bright smile"
               loading="lazy"
               width={1280}

@@ -21,7 +21,7 @@ export function Logo({ className = "h-9 w-9", animate = false }: { className?: s
 
       {/* 3D CSS Tooth */}
       <div
-        className={`relative w-full h-full ${animate ? "animate-tooth-float" : ""}`}
+        className={`relative w-full h-full animate-tooth-float`}
         style={{
           transformStyle: "preserve-3d",
           transform: "rotateX(0deg)",
@@ -39,13 +39,13 @@ export function Logo({ className = "h-9 w-9", animate = false }: { className?: s
           {/* Glossy highlight using radial gradient */}
           <defs>
             <radialGradient id="tooth-gloss" cx="35%" cy="30%">
-              <stop offset="0%" stopColor="rgba(255, 255, 255, 0.8)" />
-              <stop offset="50%" stopColor="rgba(255, 255, 255, 0.2)" />
+              <stop offset="0%" stopColor="rgba(255, 255, 255, 0.9)" />
+              <stop offset="50%" stopColor="rgba(255, 255, 255, 0.3)" />
               <stop offset="100%" stopColor="rgba(255, 255, 255, 0)" />
             </radialGradient>
             <linearGradient id="tooth-shade" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f8f7f4" />
-              <stop offset="100%" stopColor="#e8e4df" />
+              <stop offset="0%" stopColor="#6B92A3" />
+              <stop offset="100%" stopColor="#567C8D" />
             </linearGradient>
           </defs>
 
@@ -53,7 +53,7 @@ export function Logo({ className = "h-9 w-9", animate = false }: { className?: s
           <path
             d="M32 8 Q48 12 48 28 Q48 48 32 72 Q16 48 16 28 Q16 12 32 8 Z"
             fill="url(#tooth-shade)"
-            stroke="#d4ccc4"
+            stroke="#3d5a6f"
             strokeWidth="0.5"
           />
 
